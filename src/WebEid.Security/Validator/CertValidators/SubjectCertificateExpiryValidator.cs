@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright © 2020-2024 Estonian Information System Authority
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,6 +26,7 @@ namespace WebEid.Security.Validator.CertValidators
     using System.Threading.Tasks;
     using Microsoft.Extensions.Logging;
     using Util;
+    using WebEid.Security.Exceptions;
 
     internal class SubjectCertificateExpiryValidator : ISubjectCertificateValidator
     {

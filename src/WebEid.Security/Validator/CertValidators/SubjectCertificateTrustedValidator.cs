@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright © 2020-2024 Estonian Information System Authority
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,6 +26,7 @@ namespace WebEid.Security.Validator.CertValidators
     using System.Threading.Tasks;
     using Microsoft.Extensions.Logging;
     using Util;
+    using WebEid.Security.Exceptions;
 
     internal sealed class SubjectCertificateTrustedValidator : ISubjectCertificateValidator
     {
@@ -42,7 +43,7 @@ namespace WebEid.Security.Validator.CertValidators
         /// Validates that the user certificate from the authentication token is signed by a trusted certificate authority.
         /// </summary>
         /// <param name="subjectCertificate">the user certificate.</param>
-        /// <exception cref="UserCertificateNotTrustedException">when user certificate is not signed by a trusted CA or is valid after CA certificate.</exception>
+        /// <exception cref="CertificateNotTrustedException">when user certificate is not signed by a trusted CA or is valid after CA certificate.</exception>
         public Task Validate(X509Certificate2 subjectCertificate)
         {
             this.SubjectCertificateIssuerCertificate = subjectCertificate.ValidateIsSignedByTrustedCa(this.trustedCaCertificates);

@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright © 2020-2024 Estonian Information System Authority
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -28,11 +28,18 @@ namespace WebEid.Security.Validator
     using Ocsp.Service;
     using Util;
 
+    /// <summary>
+    /// Represents a builder for configuring and creating an <see cref="AuthTokenValidator"/>.
+    /// </summary>
     public class AuthTokenValidatorBuilder
     {
         private readonly ILogger logger;
         private readonly AuthTokenValidationConfiguration configuration = new AuthTokenValidationConfiguration();
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AuthTokenValidatorBuilder"/> class.
+        /// </summary>
+        /// <param name="logger">The logger for capturing log messages (optional).</param>
         public AuthTokenValidatorBuilder(ILogger logger = null) => this.logger = logger;
 
         /// <summary>
